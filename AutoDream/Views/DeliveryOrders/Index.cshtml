@@ -1,0 +1,65 @@
+﻿@model IEnumerable<AutoDream.Models.DeliveryOrder>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Замовлення</h1>
+
+<p>
+    <a asp-action="Create">Нове замовлення</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EngineVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EngineType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OtherInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineVolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Змінити</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Подробиці</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

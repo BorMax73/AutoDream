@@ -1,0 +1,79 @@
+﻿@model AutoDream.Models.Car
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Подробиці</h1>
+
+<div>
+    @*<h4>Car</h4>*@
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EngineVolume)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EngineVolume)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EngineType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EngineType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReleaseYear)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseYear)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VINCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VINCode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ModelId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ModelId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CarPriceId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CarPriceId)
+        </dd>
+        <dd class="col-sm-2">
+            <h4>
+            @ViewBag.Model.ModelName
+            </h4>
+        </dd>
+        <dd class="col-sm-10">
+            @ViewBag.Model.Type
+        </dd>
+        <dd class="col-lg-10">
+            <h4>@ViewBag.Price.ExpectedPrice</h4>
+            
+        </dd>
+        <dd class="col-lg-10">
+            @if (Model.Image != null)
+            {
+                <img style='width:150px; height:150px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Image))" />
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Create" asp-controller="Clients" asp-route-id="@Model.Id">Оформити продаж</a> |
+    <a asp-action="Edit" asp-route-id="@Model.Id">Змінити</a> |
+    <a asp-action="Index">Повернутися до списку</a>
+</div>

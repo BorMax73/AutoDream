@@ -1,0 +1,68 @@
+﻿@model IQueryable<CarInfo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Авто в наявності</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EngineVolume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EngineType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleaseYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VINCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModelId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarPriceId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>*@
+<div>
+<div class="content">
+<div class="results">
+    @foreach (var obj in Model)
+    {
+
+
+        <a asp-action="Details" asp-route-id="@obj.Id" onmouseover="this.style.textDecoration = 'none';" class="result">
+
+            <div class="poster">
+                @if (obj.Image != null)
+                {
+                    <img class="poster"  src="data:image/jpeg;base64,@(Convert.ToBase64String(obj.Image))"/>
+                }
+            </div>
+            <h4>@obj.ModelName</h4>
+            <h5>@obj.Type</h5>
+        </a>
+            
+       
+
+    }
+</div>
+</div >
+</div >
+   @* </tr>
+}*@
+  @*  </tbody>
+</table>*@
